@@ -20,6 +20,9 @@ const Music = (props) => {
   return (
     <MusicContainer>
       <h1>Music</h1>
+
+      {/* Add music from the different socials here. */}
+
       <iframe
         width="70%"
         height="70%"
