@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { icons, colorPalette } from "../utilities";
 
 const HomeContainer = styled.div`
-  padding-top: 20rem;
+  padding-top: 8rem;
   background-color: ${colorPalette.background};
   color: white;
   display: flex;
@@ -13,7 +13,7 @@ const HomeContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
    
-    padding-top: 8rem;
+    
 `;
 
 const Home = (props) => {

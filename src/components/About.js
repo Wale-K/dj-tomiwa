@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { icons, colorPalette } from "../utilities";
 
 const AboutContainer = styled.div`
-  padding-top: 20rem;
+  padding-top: 8rem;
   background-color: ${colorPalette.background};
   color: white;
   display: flex;
   justify-content: center;
-  height: calc(100vh);
+  height: 100vh;
 
   @media only screen and (min-width: 768px) {
     padding-top: 8rem;

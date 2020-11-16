@@ -8,7 +8,7 @@ const GalleryContainer = styled.div`
   justify-content: center;
   height: 100vh;
   background-color: ${colorPalette.background};
-  padding-top: 20rem;
+  padding-top: 8rem;
 
   @media only screen and (min-width: 768px) {
     padding-top: 8rem;

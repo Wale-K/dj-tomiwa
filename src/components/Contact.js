@@ -51,12 +51,13 @@ const ContactContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
+  
   width: 100vw;
   align-items: center;
   color: white;
   padding-top: 8rem;
   background-color: ${colorPalette.background};
+  
 
   a,
   a:visited {
@@ -64,7 +65,7 @@ const ContactContainer = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    padding-top: 20rem;
+    
 
     ${AllContactInfoContainer} {
       flex-direction: column;

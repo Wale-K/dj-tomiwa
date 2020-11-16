@@ -13,6 +13,7 @@ import Gallery from "./components/Gallery";
 import Contacts from "./components/Contact";
 import ErrorPage from "./components/ErrorPage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 const GlobalStyles = createGlobalStyle`@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
@@ -45,9 +46,11 @@ const AppContainer = styled.div`
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <AppContainer>
         <GlobalStyles />
         <Mobile>
+          <ScrollToTop />
           <BannerMobile />
         </Mobile>
         <Laptop>

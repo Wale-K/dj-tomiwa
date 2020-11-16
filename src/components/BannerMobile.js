@@ -5,6 +5,12 @@ import { closeIcon, icons } from "../utilities";
 import { colorPalette } from "../utilities";
 import { Link } from "react-router-dom";
 
+const Spacer = styled.div`
+  height: 14rem;
+  background-color: white;
+  display: ${(props) => props.display};
+`;
+
 const CloseIconX = styled.svg`
   width: 2rem;
   height: 2rem;
@@ -17,6 +23,7 @@ const CollapseNavBar = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${colorPalette.iconBackground};
+
   display: ${(props) => props.display};
   height: 3rem;
   width: 3rem;
@@ -109,6 +116,7 @@ const BannerContainer = styled.div`
   position: fixed;
   top: 0;
   display: flex;
+
   justify-content: space-around;
   align-items: center;
   width: 100vw;
@@ -150,65 +158,70 @@ class BannerMobile extends React.Component {
 
   render() {
     return (
-      <BannerContainer>
-        <div>
-          <DJLogo src={DJTomiwaWhite} />
-        </div>
-        <CollapseNavBar
-          display={this.state.isNavBarCollapsed ? "flex" : "none"}
-          onClick={this.handleCollapseNavBar}
-        >
-          <p>Menu</p>
-        </CollapseNavBar>
-        <ToggleCollapsedNavBarDisplay
-          display={!this.state.isNavBarCollapsed ? "flex" : "none"}
-        >
-          <CloseIconX onClick={this.handleCollapseNavBar}>
-            {closeIcon}
-          </CloseIconX>
-          <NavBarContentWithoutX>
+      <div>
+        <BannerContainer>
+          <div>
             <DJLogo src={DJTomiwaWhite} />
-            <ConentLinksDiv>
-              <ul>
-                <li>
-                  <Link to="/">HOME</Link>
-                </li>
+          </div>
+          <CollapseNavBar
+            display={this.state.isNavBarCollapsed ? "flex" : "none"}
+            onClick={this.handleCollapseNavBar}
+          >
+            <p>Menu</p>
+          </CollapseNavBar>
 
-                <li>
-                  <Link to="/about">ABOUT</Link>
-                </li>
+          <ToggleCollapsedNavBarDisplay
+            display={!this.state.isNavBarCollapsed ? "flex" : "none"}
+          >
+            <CloseIconX onClick={this.handleCollapseNavBar}>
+              {closeIcon}
+            </CloseIconX>
+            <NavBarContentWithoutX>
+              <DJLogo src={DJTomiwaWhite} />
+              <ConentLinksDiv>
+                <ul>
+                  <li>
+                    <Link to="/">HOME</Link>
+                  </li>
 
-                <li>
-                  <Link to="/music">MUSIC</Link>
-                </li>
+                  <li>
+                    <Link to="/about">ABOUT</Link>
+                  </li>
 
-                <li>
-                  <Link to="/testimonials">TESTIMONIALS</Link>
-                </li>
+                  <li>
+                    <Link to="/music">MUSIC</Link>
+                  </li>
 
-                <li>
-                  <Link to="/gallery">GALLERY</Link>
-                </li>
+                  <li>
+                    <Link to="/testimonials">TESTIMONIALS</Link>
+                  </li>
 
-                <li>
-                  <Link to="/contacts">CONTACT</Link>
-                </li>
-              </ul>
-            </ConentLinksDiv>
-          </NavBarContentWithoutX>
-          <SocialsIconsContainer>
-            {icons.contact.map((elem) => {
-              return (
-                <a href={elem.url} target="_blank">
-                  <SocialsIcons key={elem.url}>
-                    <svg>{elem.icon}</svg>
-                  </SocialsIcons>
-                </a>
-              );
-            })}
-          </SocialsIconsContainer>
-        </ToggleCollapsedNavBarDisplay>
-      </BannerContainer>
+                  <li>
+                    <Link to="/gallery">GALLERY</Link>
+                  </li>
+
+                  <li>
+                    <Link to="/contacts">CONTACT</Link>
+                  </li>
+                </ul>
+              </ConentLinksDiv>
+            </NavBarContentWithoutX>
+
+            <SocialsIconsContainer>
+              {icons.contact.map((elem) => {
+                return (
+                  <a href={elem.url} target="_blank">
+                    <SocialsIcons key={elem.url}>
+                      <svg>{elem.icon}</svg>
+                    </SocialsIcons>
+                  </a>
+                );
+              })}
+            </SocialsIconsContainer>
+          </ToggleCollapsedNavBarDisplay>
+        </BannerContainer>
+        <Spacer display={this.state.isNavBarCollapsed ? "none" : "flex"} />
+      </div>
     );
   }
 }
