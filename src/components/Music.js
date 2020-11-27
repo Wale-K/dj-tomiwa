@@ -8,21 +8,21 @@ const VideosWrapper = styled.div`
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
 `;
 
-const SoundCloudWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+const MixerWrapper = styled.div`
   width: 80%;
-  align-items: center;
+  margin: 0 auto;
+  padding: 1rem 0 3rem 0;
 `;
 
 const MusicContainer = styled.div`
   color: ${colorPalette.text};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  > header {
+    margin-left: 10%;
+  }
   background-color: ${colorPalette.background};
   padding-top: 8rem;
 
@@ -31,11 +31,10 @@ const MusicContainer = styled.div`
   }
 `;
 
-const Music = (props) => {
+const Music = () => {
   return (
     <MusicContainer>
-      <h1>Music</h1>
-
+      <header>YouTube</header>
       <VideosWrapper>
         <iframe
           title="80s party mix"
@@ -59,7 +58,8 @@ const Music = (props) => {
           style={{ padding: "1rem" }}
         ></iframe>
       </VideosWrapper>
-      <SoundCloudWrapper>
+      <header>SoundCloud</header>
+      <MixerWrapper>
         <iframe
           width="100%"
           height="300"
@@ -67,7 +67,6 @@ const Music = (props) => {
           frameborder="no"
           allow="autoplay"
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/653233811&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-          style={{ paddingTop: "1rem" }}
         ></iframe>
         <div
           style={{
@@ -102,14 +101,17 @@ const Music = (props) => {
             Afrobeat Alchemy 5: Ice Edition (2019 Afrobeats Mix)
           </a>
         </div>
-      </SoundCloudWrapper>
-      <iframe
-        width="100%"
-        height="120"
-        src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdjtomiwa%2Fafrobeat-alchemy-4-2018-afrobeats-mix-mixed-by-dj-tomiwa%2F"
-        frameborder="0"
-        style={{ width: "80%", padding: "1rem" }}
-      ></iframe>
+      </MixerWrapper>
+      <header>Mixcloud</header>
+      <MixerWrapper>
+        <iframe
+          width="100%"
+          height="120"
+          src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdjtomiwa%2Fafrobeat-alchemy-4-2018-afrobeats-mix-mixed-by-dj-tomiwa%2F"
+          frameborder="0"
+          style={{ width: "100%" }}
+        ></iframe>
+      </MixerWrapper>
     </MusicContainer>
   );
 };

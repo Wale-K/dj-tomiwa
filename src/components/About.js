@@ -17,11 +17,7 @@ const AboutContainer = styled.div`
 
 const About = (props) => {
   console.log("HERE: ", props);
-  return (
-    <AboutContainer>
-      <h1>About</h1>
-    </AboutContainer>
-  );
+  return <AboutContainer></AboutContainer>;
 };
 
 export default About;

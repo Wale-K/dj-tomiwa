@@ -19,7 +19,7 @@ const HomeContainer = styled.div`
   p,
   h1 {
     animation-name: example;
-    animation-duration: 12s;
+    animation-duration: 10s;
   }
 
   h1 {
@@ -27,11 +27,11 @@ const HomeContainer = styled.div`
   }
 
   p:first-child {
-    animation-duration: 4s;
+    animation-duration: 2s;
   }
 
   p:nth-child(2) {
-    animation-duration: 8s;
+    animation-duration: 6s;
   }
 
   padding-top: 15rem;
@@ -40,7 +40,7 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh);
+  min-height: calc(100vh - 15rem);
 
   @media only screen and (min-width: 768px) {
   }
