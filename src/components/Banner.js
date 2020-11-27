@@ -127,12 +127,8 @@ class Banner extends React.Component {
         <div>
           <DJLogo src={DJTomiwaWhite} />
         </div>
-        <CollapseNavBar display="flex">
-          <p>Hello</p>
-        </CollapseNavBar>
-        <ToggleCollapsedNavBarDisplay>
-          <p>Bye</p>
-        </ToggleCollapsedNavBarDisplay>
+        <CollapseNavBar display="flex"></CollapseNavBar>
+        <ToggleCollapsedNavBarDisplay></ToggleCollapsedNavBarDisplay>
 
         <ConentLinksDiv>
           <ul>
@@ -157,7 +153,7 @@ class Banner extends React.Component {
             </li>
 
             <li>
-              <Link to="/contacts">CONTACT</Link>
+              <Link to="/contact">CONTACT</Link>
             </li>
           </ul>
         </ConentLinksDiv>

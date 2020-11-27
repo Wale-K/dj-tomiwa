@@ -201,7 +201,7 @@ class BannerMobile extends React.Component {
                   </li>
 
                   <li>
-                    <Link to="/contacts">CONTACT</Link>
+                    <Link to="/contact">CONTACT</Link>
                   </li>
                 </ul>
               </ConentLinksDiv>

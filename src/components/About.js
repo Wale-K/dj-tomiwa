@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { icons, colorPalette } from "../utilities";
+import { colorPalette } from "../utilities";
 
 const AboutContainer = styled.div`
   padding-top: 8rem;

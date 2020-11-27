@@ -51,13 +51,12 @@ const ContactContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+
   width: 100vw;
   align-items: center;
   color: white;
   padding-top: 8rem;
   background-color: ${colorPalette.background};
-  
 
   a,
   a:visited {
@@ -65,8 +64,6 @@ const ContactContainer = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    
-
     ${AllContactInfoContainer} {
       flex-direction: column;
       margin: 10vh 0 20vh;
@@ -79,8 +76,7 @@ const ContactContainer = styled.div`
       padding: 0;
       margin: 0;
     }
-
-
+  }
 `;
 
 const Contact = (props) => {

@@ -1,9 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-import { icons, colorPalette } from "../utilities";
+import { colorPalette } from "../utilities";
 
 const HomeContainer = styled.div`
-  padding-top: 8rem;
+  @keyframes example {
+    0% {
+      color: ${colorPalette.background};
+    }
+
+    50% {
+      color: ${colorPalette.background};
+    }
+    100% {
+      color: ${colorPalette.white};
+    }
+  }
+
+  p,
+  h1 {
+    animation-name: example;
+    animation-duration: 12s;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p:first-child {
+    animation-duration: 4s;
+  }
+
+  p:nth-child(2) {
+    animation-duration: 8s;
+  }
+
+  padding-top: 15rem;
   background-color: ${colorPalette.background};
   color: white;
   display: flex;
@@ -12,15 +43,14 @@ const HomeContainer = styled.div`
   height: calc(100vh);
 
   @media only screen and (min-width: 768px) {
-   
-    
+  }
 `;
 
-const Home = (props) => {
-  console.log(props);
+const Home = () => {
   return (
     <HomeContainer>
-      <p>You are now in the zone with</p>
+      <p duration="4s">You are now in the zone with</p>
+      <p>2020 UK African Wedding Awards DJ of the Year</p>
       <h1>DJ TOMIWA</h1>
     </HomeContainer>
   );

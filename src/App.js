@@ -4,13 +4,12 @@ import Banner from "./components/Banner";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import { colorPalette } from "./utilities";
-import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
 import Home from "./components/Home";
 import About from "./components/About";
 import Music from "./components/Music";
 import Gallery from "./components/Gallery";
-import Contacts from "./components/Contact";
+import Contact from "./components/Contact";
 import ErrorPage from "./components/ErrorPage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
@@ -62,7 +61,7 @@ const App = () => {
           <Route component={Music} path="/music" />
           <Route component={Testimonials} exact path="/testimonials" />
           <Route component={Gallery} exact path="/gallery" />
-          <Route component={Contacts} exact path="/contacts" />
+          <Route component={Contact} exact path="/contact" />
           <Route component={ErrorPage} path="/" />
         </Switch>
       </AppContainer>
