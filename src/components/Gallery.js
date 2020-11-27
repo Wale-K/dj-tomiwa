@@ -1,12 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-import { icons, colorPalette } from "../utilities";
+import { colorPalette } from "../utilities";
+import { pictures } from "../Pictures";
+
+const ImagesWrapper = styled.div`
+  img {
+    height: 10rem;
+    width: auto;
+    margin: 2rem;
+    border: solid 1px ${colorPalette.highlight};
+    border-radius: 5px;
+  }
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+`;
 
 const GalleryContainer = styled.div`
   color: ${colorPalette.text};
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+
   background-color: ${colorPalette.background};
   padding-top: 8rem;
 
@@ -15,10 +33,14 @@ const GalleryContainer = styled.div`
   }
 `;
 
-const Gallery = (props) => {
+const Gallery = () => {
   return (
     <GalleryContainer>
-      <h1>Gallery</h1>
+      <ImagesWrapper>
+        {pictures.map((elem) => {
+          return <img key={elem} src={elem} />;
+        })}
+      </ImagesWrapper>
     </GalleryContainer>
   );
 };
