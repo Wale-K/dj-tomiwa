@@ -12,7 +12,7 @@ const ImagesWrapper = styled.div`
     border-radius: 5px;
   }
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 80%;
   margin: 0 auto;
