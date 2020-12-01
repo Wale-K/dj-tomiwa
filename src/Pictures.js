@@ -9,6 +9,7 @@ import smiles from "../src/images/smiles.jpg";
 import smiley from "../src/images/smiley.jpg";
 import chinny from "../src/images/chinny.jpg";
 import artistic from "../src/images/artistic.jpg";
+import review from "../src/images/review.jpg";
 
 export const pictures = [
   award,
@@ -22,4 +23,5 @@ export const pictures = [
   smiley,
   chinny,
   artistic,
+  review,
 ];

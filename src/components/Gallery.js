@@ -4,18 +4,21 @@ import { colorPalette } from "../utilities";
 import { pictures } from "../Pictures";
 
 const ImagesWrapper = styled.div`
-  img {
-    height: 10rem;
-    width: auto;
-    margin: 2rem;
-    border: solid 1px ${colorPalette.highlight};
-    border-radius: 5px;
-  }
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   width: 80%;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 10rem;
+    width: auto;
+
+    border: solid 1px ${colorPalette.highlight};
+    border-radius: 5px;
+    margin: 2rem;
+  }
 `;
 
 const GalleryContainer = styled.div`
