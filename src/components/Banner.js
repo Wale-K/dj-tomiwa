@@ -118,12 +118,26 @@ const BannerContainer = styled.div`
   }
 `;
 
+window.onscroll = function () {
+  scrollFunction();
+};
+
+const scrollFunction = () => {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("desktopBanner").style.backgroundColor =
+      colorPalette.selectedText;
+  } else {
+    document.getElementById("desktopBanner").style.backgroundColor =
+      colorPalette.background;
+  }
+};
+
 class Banner extends React.Component {
   state = { isNavBarCollapsed: true };
 
   render() {
     return (
-      <BannerContainer>
+      <BannerContainer id="desktopBanner">
         <div>
           <DJLogo src={DJTomiwaWhite} />
         </div>
@@ -160,8 +174,8 @@ class Banner extends React.Component {
         <SocialsIconsContainer>
           {icons.banner.map((elem) => {
             return (
-              <a href={elem.url} target="_blank">
-                <SocialsIcons key={elem.url}>
+              <a key={elem.url} href={elem.url} target="_blank">
+                <SocialsIcons>
                   <svg>{elem.icon}</svg>
                 </SocialsIcons>
               </a>

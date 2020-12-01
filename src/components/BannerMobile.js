@@ -4,6 +4,7 @@ import DJTomiwaWhite from "../images/dj-tomiwa-white.png";
 import { closeIcon, icons } from "../utilities";
 import { colorPalette } from "../utilities";
 import { Link } from "react-router-dom";
+import Banner from "./Banner";
 
 const Spacer = styled.div`
   height: 14rem;
@@ -36,7 +37,7 @@ const ToggleCollapsedNavBarDisplay = styled.div`
   display: ${(props) => props.display};
   flex-direction: column;
   margin: 0 auto;
-  background-color: ${colorPalette.background};
+  background-color: ${colorPalette.selectedText};
   position: fixed;
   top: 0;
   width: 100vw;
@@ -64,7 +65,7 @@ const ConentLinksDiv = styled.nav`
 
   li {
     color: ${colorPalette.text};
-    decoration: none;
+    text-decoration: none;
     // height: 3rem;
     // width: 3rem;
     margin: 0.25rem;
@@ -144,6 +145,20 @@ const BannerContainer = styled.div`
   }
 `;
 
+window.onscroll = function () {
+  scrollFunction();
+};
+
+const scrollFunction = () => {
+  if (document.documentElement.scrollTop > 0) {
+    document.getElementById("mobileBanner").style.backgroundColor =
+      colorPalette.selectedText;
+  } else {
+    document.getElementById("mobileBanner").style.backgroundColor =
+      colorPalette.background;
+  }
+};
+
 class BannerMobile extends React.Component {
   state = { isNavBarCollapsed: true };
 
@@ -164,7 +179,7 @@ class BannerMobile extends React.Component {
   render() {
     return (
       <div>
-        <BannerContainer>
+        <BannerContainer id="mobileBanner">
           <div>
             <DJLogo src={DJTomiwaWhite} />
           </div>
@@ -215,8 +230,8 @@ class BannerMobile extends React.Component {
             <SocialsIconsContainer>
               {icons.contact.map((elem) => {
                 return (
-                  <a href={elem.url} target="_blank">
-                    <SocialsIcons key={elem.url}>
+                  <a key={elem.url} href={elem.url} target="_blank">
+                    <SocialsIcons>
                       <svg>{elem.icon}</svg>
                     </SocialsIcons>
                   </a>
