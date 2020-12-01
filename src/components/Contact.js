@@ -61,6 +61,7 @@ const ContactContainer = styled.div`
   a,
   a:visited {
     color: ${colorPalette.text};
+    text-decoration: none;
   }
 
   @media only screen and (max-width: 768px) {
@@ -85,11 +86,15 @@ const Contact = (props) => {
       <AllContactInfoContainer>
         <ContactInfo align="right" padding="0 6rem 0 0">
           <ContactInfoTitle>PHONE</ContactInfoTitle>
-          <p>+44 7861 257 886</p>
+          <a href="tel:+447861257886">
+            <p>+44 7861 257 886</p>
+          </a>
         </ContactInfo>
         <ContactInfo align="left" padding="0 0 0 6rem">
           <ContactInfoTitle>EMAIL</ContactInfoTitle>
-          <p>DJTOMIWA@HOTMAIL.COM</p>
+          <a href="mailto:djtomiwa@hotmail.com">
+            <p>DJTOMIWA@HOTMAIL.COM</p>
+          </a>
         </ContactInfo>
       </AllContactInfoContainer>
       <ContactIconsContainer>

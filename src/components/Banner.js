@@ -35,7 +35,7 @@ const ConentLinksDiv = styled.nav`
 
   li {
     color: ${colorPalette.text};
-    decoration: none;
+    text-decoration: none;
     // height: 3rem;
     // width: 3rem;
     margin: 0.25rem;

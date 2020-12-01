@@ -103,9 +103,8 @@ const SocialsIconsContainer = styled.div`
   a,
   a:visited {
     color: ${colorPalette.text};
-    decoration: none;
-    // height: 3rem;
-    // width: 3rem;
+    text-decoration: none;
+
     margin: 0.25rem;
   }
   display: flex;
