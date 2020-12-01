@@ -155,6 +155,12 @@ class BannerMobile extends React.Component {
     });
   };
 
+  clickLinktoCollapseNavBar = () => {
+    this.setState((prevState) => {
+      return { isNavBarCollapsed: true };
+    });
+  };
+
   render() {
     return (
       <div>
@@ -179,27 +185,27 @@ class BannerMobile extends React.Component {
               <DJLogo src={DJTomiwaWhite} />
               <ConentLinksDiv>
                 <ul>
-                  <li>
+                  <li onClick={this.clickLinktoCollapseNavBar}>
                     <Link to="/">HOME</Link>
                   </li>
 
-                  <li>
+                  <li onClick={this.clickLinktoCollapseNavBar}>
                     <Link to="/about">ABOUT</Link>
                   </li>
 
-                  <li>
+                  <li onClick={this.clickLinktoCollapseNavBar}>
                     <Link to="/music">MUSIC</Link>
                   </li>
 
-                  <li>
+                  <li onClick={this.clickLinktoCollapseNavBar}>
                     <Link to="/testimonials">TESTIMONIALS</Link>
                   </li>
 
-                  <li>
+                  <li onClick={this.clickLinktoCollapseNavBar}>
                     <Link to="/gallery">GALLERY</Link>
                   </li>
 
-                  <li>
+                  <li onClick={this.clickLinktoCollapseNavBar}>
                     <Link to="/contact">CONTACT</Link>
                   </li>
                 </ul>
