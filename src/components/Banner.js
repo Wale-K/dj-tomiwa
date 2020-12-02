@@ -70,7 +70,7 @@ const SocialsIconsContainer = styled.div`
   a,
   a:visited {
     color: ${colorPalette.text};
-    decoration: none;
+    text-decoration: none;
     // height: 3rem;
     // width: 3rem;
     margin: 0.25rem;
@@ -90,7 +90,6 @@ const BannerContainer = styled.div`
 
   color: ${colorPalette.text};
   height: 8rem;
-
   box-shadow: 0px 0px 20px rgba(16, 7, 21, 1);
 
   @media only screen and (max-width: 768px) {
@@ -123,11 +122,15 @@ window.onscroll = function () {
 };
 
 const scrollFunction = () => {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("desktopBanner").style.backgroundColor =
+  if (document.documentElement.scrollTop > 0) {
+    document.getElementById("banner").style.backgroundColor =
+      colorPalette.selectedText;
+    document.getElementById("mobile").style.backgroundColor =
       colorPalette.selectedText;
   } else {
-    document.getElementById("desktopBanner").style.backgroundColor =
+    document.getElementById("banner").style.backgroundColor =
+      colorPalette.background;
+    document.getElementById("mobile").style.backgroundColor =
       colorPalette.background;
   }
 };
@@ -137,7 +140,7 @@ class Banner extends React.Component {
 
   render() {
     return (
-      <BannerContainer id="desktopBanner">
+      <BannerContainer id="banner">
         <div>
           <DJLogo src={DJTomiwaWhite} />
         </div>

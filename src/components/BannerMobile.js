@@ -145,20 +145,6 @@ const BannerContainer = styled.div`
   }
 `;
 
-window.onscroll = function () {
-  scrollFunction();
-};
-
-const scrollFunction = () => {
-  if (document.documentElement.scrollTop > 0) {
-    document.getElementById("mobileBanner").style.backgroundColor =
-      colorPalette.selectedText;
-  } else {
-    document.getElementById("mobileBanner").style.backgroundColor =
-      colorPalette.background;
-  }
-};
-
 class BannerMobile extends React.Component {
   state = { isNavBarCollapsed: true };
 
@@ -179,7 +165,7 @@ class BannerMobile extends React.Component {
   render() {
     return (
       <div>
-        <BannerContainer id="mobileBanner">
+        <BannerContainer id="mobile">
           <div>
             <DJLogo src={DJTomiwaWhite} />
           </div>

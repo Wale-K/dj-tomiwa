@@ -72,7 +72,6 @@ const ErrorPageContainer = styled.div`
 `;
 
 const ErrorPage = (props) => {
-  console.log(props);
   return (
     <ErrorPageContainer>
       <ErrorDiv>
