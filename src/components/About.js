@@ -8,7 +8,7 @@ const AboutContainer = styled.div`
   color: white;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  min-height: calc(100vh - 8rem);
 
   @media only screen and (min-width: 768px) {
     padding-top: 8rem;

@@ -51,7 +51,7 @@ const ContactContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
+  min-height: calc(100vh - 8rem);
   width: 100vw;
   align-items: center;
   color: white;

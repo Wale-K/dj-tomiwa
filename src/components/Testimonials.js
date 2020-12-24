@@ -10,10 +10,10 @@ const testimonies = [
         traditional and white wedding. Both days were awesome not only because
         of the songs you played but because of your attitude before and during
         the big days. It was great to have you on our team and we will
-        definitely be recommending you to everyone!!! Thank you so much!! KEMI &
-        SENGOVA
+        definitely be recommending you to everyone!!! Thank you so much!!
       </p>
     ),
+    person: <p>KEMI & SENGOVA</p>,
   },
 
   {
@@ -24,9 +24,10 @@ const testimonies = [
         with the songs. You literally catered for every single person that was
         in the room. I think a few of the aunties said they took your number
         lool see new business in Bristol. But honestly thank you so much we are
-        so grateful you brought life to our wedding. Much love” JACOB & ALTAR
+        so grateful you brought life to our wedding. Much love
       </p>
     ),
+    person: <p>JACOB & ALTAR</p>,
   },
   {
     testimony: (
@@ -34,21 +35,18 @@ const testimonies = [
         Hey, I should have said thank you by now already but sorry forgot.
         Massive thanks again. You were so on point!! Lots of people kept banging
         on about how good the dj was. You adapted really well and got both
-        crowds on their feet. Thanks so much” KAREN & ADRIAN
+        crowds on their feet. Thanks so much”
       </p>
     ),
+    person: <p>KAREN & ADRIAN</p>,
   },
 ];
-
-// Hey, I should have said thank you by now already but sorry forgot. Massive
-// thanks again. You were so on point!! Lots of people kept banging on about
-// how good the dj was. You adapted really well and got both crowds on their
-// feet. Thanks so much” KAREN & ADRIAN
 
 const TestimonialsContainer = styled.div`
   color: ${colorPalette.text};
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
   background-color: ${colorPalette.background};
   padding-top: 8rem;
@@ -73,15 +71,47 @@ const TestimoniesCollection = styled.div`
     margin: 0 10vw;
   }
 `;
+class Testimonials extends React.Component {
+  state = { testimonyIndex: 0 };
 
-const Testimonials = () => {
-  return (
-    <TestimonialsContainer>
-      <div>
+  decrementTesimonyIndex = () => {
+    this.setState((prevState) => {
+      if (prevState.testimonyIndex !== 0) {
+        return { testimonyIndex: prevState.testimonyIndex - 1 };
+      } else {
+        return { testimonyIndex: testimonies.length - 1 };
+      }
+    });
+  };
+
+  incrementTestimonialsIndex = () => {
+    this.setState((prevState) => {
+      if (prevState.testimonyIndex !== testimonies.length - 1) {
+        return { testimonyIndex: prevState.testimonyIndex + 1 };
+      } else {
+        return { testimonyIndex: 0 };
+      }
+    });
+  };
+
+  render() {
+    const currentTestimony = testimonies[this.state.testimonyIndex];
+    return (
+      <TestimonialsContainer>
         <h1>TESTIMONIALS</h1>
-      </div>
-    </TestimonialsContainer>
-  );
-};
+        <button onClick={this.decrementTesimonyIndex}>PREV</button>
+        {currentTestimony.testimony}
+        {currentTestimony.person}
+        <button onClick={this.incrementTestimonialsIndex}>NEXT</button>
+      </TestimonialsContainer>
+    );
+  }
+}
 
 export default Testimonials;
+
+// the next button changes position. Keep it fixed.
+// Change the text buttons to logos or something.
+// Add photos?
+// style the tesimonial text area div.
+// change the onhover colour of the text when the scrollY position is > 0.
