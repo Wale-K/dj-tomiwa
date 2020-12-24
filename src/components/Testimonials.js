@@ -43,10 +43,19 @@ const TestimonialsContainer = styled.div`
 
 const TestimonialsPictures = styled.div`
   align-self: center;
-  img {
-    height: 5rem;
-    width: 5rem;
-    margin: 2rem 2rem 0 2rem;
+`;
+
+const Picture = styled.img`
+  height: 5rem;
+  width: 5rem;
+  margin: 2rem 2rem 0 2rem;
+  border: ${(props) => props.border};
+  border-color: ${(props) => props.borderColor};
+  transition: 0.5s;
+  :hover {
+    cursor: pointer;
+
+    border-color: ${colorPalette.highlight};
   }
 `;
 
@@ -56,7 +65,6 @@ const TestimonyArea = styled.div`
   justify-content: space-between;
   width: 80%;
   min-height: 40%;
-  background-color: pink;
 `;
 
 class Testimonials extends React.Component {
@@ -94,26 +102,30 @@ class Testimonials extends React.Component {
       <TestimonialsContainer>
         <h1>TESTIMONIALS</h1>
 
-        <button onClick={this.decrementTesimonyIndex}>PREV</button>
         <TestimonyArea>
           <p>{currentTestimony.testimony}</p>
           {currentTestimony.person}
           <TestimonialsPictures>
             {testimonies.map((testimony, index) => {
               return (
-                <img
+                <Picture
                   alt=""
                   key={testimony.person}
                   src={testimony.picture}
                   onClick={() => {
                     this.handleToggleTestimonial(index);
                   }}
+                  border="solid 10px"
+                  borderColor={
+                    this.state.testimonyIndex === index
+                      ? colorPalette.highlight
+                      : "transparent"
+                  }
                 />
               );
             })}
           </TestimonialsPictures>
         </TestimonyArea>
-        <button onClick={this.incrementTestimonialsIndex}>NEXT</button>
       </TestimonialsContainer>
     );
   }
