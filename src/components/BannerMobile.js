@@ -50,7 +50,7 @@ const ConentLinksDiv = styled.nav`
     text-decoration: none;
 
     :hover {
-      color: ${colorPalette.selectedText};
+      color: ${colorPalette.highlight};
       cursor: pointer;
     }
   }

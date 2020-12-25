@@ -27,28 +27,17 @@ const testimonies = [
   },
 ];
 
-const TestimonialsContainer = styled.div`
-  color: ${colorPalette.text};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  background-color: ${colorPalette.background};
-  padding-top: 8rem;
-
-  @media only screen and (min-width: 768px) {
-    padding-top: 8rem;
-  }
-`;
-
 const TestimonialsPictures = styled.div`
   align-self: center;
+  display: flex;
+  justify-content: space-around;
+  width: 80vw;
 `;
 
 const Picture = styled.img`
-  height: 5rem;
-  width: 5rem;
-  margin: 2rem 2rem 0 2rem;
+  height: 3rem;
+  width: 3rem;
+  margin: 2rem 0 0 0;
   border: ${(props) => props.border};
   border-color: ${(props) => props.borderColor};
   transition: 0.5s;
@@ -64,7 +53,36 @@ const TestimonyArea = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 80%;
-  min-height: 40%;
+  height: 60%;
+`;
+
+const NameandPicture = styled.div`
+  width: inherit;
+`;
+
+const TestimonialsContainer = styled.div`
+  color: ${colorPalette.text};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 108vh;
+  background-color: ${colorPalette.background};
+  padding-top: 8rem;
+
+  @media only screen and (min-width: 768px) {
+    padding-top: 8rem;
+    ${TestimonyArea} {
+      height: 40%;
+    }
+
+    ${TestimonialsPictures} {
+      width: 80vw;
+      justify-content: center;
+      img {
+        margin: 0 2rem;
+      }
+    }
+  }
 `;
 
 class Testimonials extends React.Component {
@@ -100,31 +118,31 @@ class Testimonials extends React.Component {
     const currentTestimony = testimonies[this.state.testimonyIndex];
     return (
       <TestimonialsContainer>
-        <h1>TESTIMONIALS</h1>
-
         <TestimonyArea>
           <p>{currentTestimony.testimony}</p>
-          {currentTestimony.person}
-          <TestimonialsPictures>
-            {testimonies.map((testimony, index) => {
-              return (
-                <Picture
-                  alt=""
-                  key={testimony.person}
-                  src={testimony.picture}
-                  onClick={() => {
-                    this.handleToggleTestimonial(index);
-                  }}
-                  border="solid 10px"
-                  borderColor={
-                    this.state.testimonyIndex === index
-                      ? colorPalette.highlight
-                      : "transparent"
-                  }
-                />
-              );
-            })}
-          </TestimonialsPictures>
+          <NameandPicture>
+            {currentTestimony.person}
+            <TestimonialsPictures>
+              {testimonies.map((testimony, index) => {
+                return (
+                  <Picture
+                    alt=""
+                    key={testimony.person}
+                    src={testimony.picture}
+                    onClick={() => {
+                      this.handleToggleTestimonial(index);
+                    }}
+                    border="solid 10px"
+                    borderColor={
+                      this.state.testimonyIndex === index
+                        ? colorPalette.highlight
+                        : "transparent"
+                    }
+                  />
+                );
+              })}
+            </TestimonialsPictures>
+          </NameandPicture>
         </TestimonyArea>
       </TestimonialsContainer>
     );

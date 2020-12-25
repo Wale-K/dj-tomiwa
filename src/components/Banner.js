@@ -14,14 +14,16 @@ const ToggleCollapsedNavBarDisplay = styled.div`
   display: none;
 `;
 
-const ConentLinksDiv = styled.nav`
+const ContentLinksDiv = styled.nav`
   a,
   a:visited {
-    color: ${colorPalette.text};
+    /* color: ${colorPalette.text}; */
+
+    color: ${(props) => props.test};
     text-decoration: none;
 
     :hover {
-      color: ${colorPalette.selectedText};
+      color: ${colorPalette.highlight};
       cursor: pointer;
     }
   }
@@ -103,7 +105,7 @@ const BannerContainer = styled.div`
       background-color: ${(props) => props.ccc};
     }
 
-    ${ConentLinksDiv} {
+    ${ContentLinksDiv} {
       display: none;
     }
     ${DJLogo} {
@@ -136,7 +138,13 @@ const scrollFunction = () => {
 };
 
 class Banner extends React.Component {
-  state = { isNavBarCollapsed: true };
+  state = { isNavBarCollapsed: true, renderedPage: "Home" };
+
+  handleTogglePage = (arg) => {
+    this.setState({
+      renderedPage: arg,
+    });
+  };
 
   render() {
     return (
@@ -147,17 +155,29 @@ class Banner extends React.Component {
         <CollapseNavBar display="flex"></CollapseNavBar>
         <ToggleCollapsedNavBarDisplay></ToggleCollapsedNavBarDisplay>
 
-        <ConentLinksDiv>
+        <ContentLinksDiv>
           <ul>
-            <li>
+            <li
+              onClick={() => {
+                this.handleTogglePage("Home");
+              }}
+            >
               <Link to="/">HOME</Link>
             </li>
 
-            <li>
+            <li
+              onClick={() => {
+                this.handleTogglePage("About");
+              }}
+            >
               <Link to="/about">ABOUT</Link>
             </li>
 
-            <li>
+            <li
+              onClick={() => {
+                this.handleTogglePage("Music");
+              }}
+            >
               <Link to="/music">MUSIC</Link>
             </li>
 
@@ -173,7 +193,7 @@ class Banner extends React.Component {
               <Link to="/contact">CONTACT</Link>
             </li>
           </ul>
-        </ConentLinksDiv>
+        </ContentLinksDiv>
         <SocialsIconsContainer>
           {icons.banner.map((elem) => {
             return (
