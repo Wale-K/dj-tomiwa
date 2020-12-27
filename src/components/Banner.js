@@ -15,17 +15,9 @@ const ToggleCollapsedNavBarDisplay = styled.div`
 `;
 
 const ContentLinksDiv = styled.nav`
-  a,
-  a:visited {
+  a {
     /* color: ${colorPalette.text}; */
-
-    color: ${(props) => props.test};
     text-decoration: none;
-
-    :hover {
-      color: ${colorPalette.highlight};
-      cursor: pointer;
-    }
   }
 
   ul {
@@ -36,11 +28,17 @@ const ContentLinksDiv = styled.nav`
   }
 
   li {
-    color: ${colorPalette.text};
     text-decoration: none;
-    // height: 3rem;
-    // width: 3rem;
     margin: 0.25rem;
+  }
+`;
+
+const BannerOption = styled.span`
+  transition: 0.5s;
+  color: ${(props) => props.colour};
+  :hover {
+    color: ${colorPalette.highlight};
+    cursor: pointer;
   }
 `;
 
@@ -89,8 +87,6 @@ const BannerContainer = styled.div`
   width: 100vw;
   font-weight: 9000;
   background-color: ${colorPalette.background};
-
-  color: ${colorPalette.text};
   height: 8rem;
   box-shadow: 0px 0px 20px rgba(16, 7, 21, 1);
 
@@ -141,9 +137,12 @@ class Banner extends React.Component {
   state = { isNavBarCollapsed: true, renderedPage: "Home" };
 
   handleTogglePage = (arg) => {
-    this.setState({
-      renderedPage: arg,
-    });
+    this.setState(
+      {
+        renderedPage: arg,
+      },
+      console.log(this.state.renderedPage)
+    );
   };
 
   render() {
@@ -157,40 +156,107 @@ class Banner extends React.Component {
 
         <ContentLinksDiv>
           <ul>
-            <li
-              onClick={() => {
-                this.handleTogglePage("Home");
-              }}
-            >
-              <Link to="/">HOME</Link>
-            </li>
-
-            <li
-              onClick={() => {
-                this.handleTogglePage("About");
-              }}
-            >
-              <Link to="/about">ABOUT</Link>
-            </li>
-
-            <li
-              onClick={() => {
-                this.handleTogglePage("Music");
-              }}
-            >
-              <Link to="/music">MUSIC</Link>
+            <li>
+              <Link to="/">
+                <BannerOption
+                  colour={
+                    this.state.renderedPage === "Home"
+                      ? colorPalette.highlight
+                      : colorPalette.text
+                  }
+                  onClick={() => {
+                    this.handleTogglePage("Home");
+                  }}
+                >
+                  HOME
+                </BannerOption>
+              </Link>
             </li>
 
             <li>
-              <Link to="/testimonials">TESTIMONIALS</Link>
+              <Link to="/about">
+                <BannerOption
+                  colour={
+                    this.state.renderedPage === "About"
+                      ? colorPalette.highlight
+                      : colorPalette.text
+                  }
+                  onClick={() => {
+                    this.handleTogglePage("About");
+                  }}
+                >
+                  ABOUT
+                </BannerOption>
+              </Link>
             </li>
 
             <li>
-              <Link to="/gallery">GALLERY</Link>
+              <Link to="/music">
+                <BannerOption
+                  colour={
+                    this.state.renderedPage === "Music"
+                      ? colorPalette.highlight
+                      : colorPalette.text
+                  }
+                  onClick={() => {
+                    this.handleTogglePage("Music");
+                  }}
+                >
+                  MUSIC
+                </BannerOption>
+              </Link>
             </li>
 
             <li>
-              <Link to="/contact">CONTACT</Link>
+              <Link to="/testimonials">
+                {" "}
+                <BannerOption
+                  colour={
+                    this.state.renderedPage === "Testimonials"
+                      ? colorPalette.highlight
+                      : colorPalette.text
+                  }
+                  onClick={() => {
+                    this.handleTogglePage("Testimonials");
+                  }}
+                >
+                  TESTIMONIALS
+                </BannerOption>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/gallery">
+                <BannerOption
+                  colour={
+                    this.state.renderedPage === "Gallery"
+                      ? colorPalette.highlight
+                      : colorPalette.text
+                  }
+                  onClick={() => {
+                    this.handleTogglePage("Gallery");
+                  }}
+                >
+                  GALLERY
+                </BannerOption>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/contact">
+                <BannerOption
+                  colour={
+                    this.state.renderedPage === "Contact"
+                      ? colorPalette.highlight
+                      : colorPalette.text
+                  }
+                  onClick={() => {
+                    this.handleTogglePage("Contact");
+                  }}
+                >
+                  CONTACT
+                </BannerOption>
+              </Link>
             </li>
           </ul>
         </ContentLinksDiv>
@@ -211,3 +277,5 @@ class Banner extends React.Component {
 }
 
 export default Banner;
+
+// when you click on a page the text in the navbar needs to be a different colour.
