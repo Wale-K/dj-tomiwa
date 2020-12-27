@@ -4,7 +4,6 @@ import DJTomiwaWhite from "../images/dj-tomiwa-white.png";
 import { closeIcon, icons } from "../utilities";
 import { colorPalette } from "../utilities";
 import { Link } from "react-router-dom";
-import Banner from "./Banner";
 
 const Spacer = styled.div`
   height: 14rem;
@@ -291,7 +290,12 @@ class BannerMobile extends React.Component {
             <SocialsIconsContainer>
               {icons.contact.map((elem) => {
                 return (
-                  <a key={elem.url} href={elem.url} target="_blank">
+                  <a
+                    key={elem.url}
+                    href={elem.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <SocialsIcons>
                       <svg>{elem.icon}</svg>
                     </SocialsIcons>

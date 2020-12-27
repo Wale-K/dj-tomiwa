@@ -232,7 +232,12 @@ class Banner extends React.Component {
         <SocialsIconsContainer>
           {icons.banner.map((elem) => {
             return (
-              <a key={elem.url} href={elem.url} target="_blank">
+              <a
+                key={elem.url}
+                href={elem.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SocialsIcons>
                   <svg>{elem.icon}</svg>
                 </SocialsIcons>
