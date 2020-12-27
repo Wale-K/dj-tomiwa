@@ -112,6 +112,15 @@ const SocialsIconsContainer = styled.div`
   justify-content: center;
 `;
 
+const BannerOption = styled.span`
+  transition: 0.5s;
+  color: ${(props) => props.colour};
+  :hover {
+    color: ${colorPalette.highlight};
+    cursor: pointer;
+  }
+`;
+
 const BannerContainer = styled.div`
   position: fixed;
   top: 0;
@@ -127,26 +136,10 @@ const BannerContainer = styled.div`
   height: 8rem;
 
   box-shadow: 0px 0px 20px rgba(16, 7, 21, 1);
-
-  @media only screen and (min-width: 768px) {
-    display: none;
-
-    ${ConentLinksDiv} {
-      display: none;
-    }
-    ${DJLogo} {
-      width: 80vw;
-      height: auto;
-    }
-
-    ${SocialsIconsContainer} {
-      display: none;
-    }
-  }
 `;
 
 class BannerMobile extends React.Component {
-  state = { isNavBarCollapsed: true };
+  state = { isNavBarCollapsed: true, renderedPage: "" };
 
   handleCollapseNavBar = () => {
     this.setState((prevState) => {
@@ -156,10 +149,14 @@ class BannerMobile extends React.Component {
     });
   };
 
-  clickLinktoCollapseNavBar = () => {
-    this.setState((prevState) => {
-      return { isNavBarCollapsed: true };
+  handleTogglePage = (arg) => {
+    this.setState({
+      renderedPage: arg,
     });
+  };
+
+  clickLinktoCollapseNavBar = () => {
+    this.setState({ isNavBarCollapsed: true });
   };
 
   render() {
@@ -187,27 +184,105 @@ class BannerMobile extends React.Component {
               <ConentLinksDiv>
                 <ul>
                   <li onClick={this.clickLinktoCollapseNavBar}>
-                    <Link to="/">HOME</Link>
+                    <Link to="/">
+                      <BannerOption
+                        colour={
+                          this.state.renderedPage === "Home"
+                            ? colorPalette.highlight
+                            : colorPalette.text
+                        }
+                        onClick={() => {
+                          this.handleTogglePage("Home");
+                        }}
+                      >
+                        HOME
+                      </BannerOption>
+                    </Link>
                   </li>
 
                   <li onClick={this.clickLinktoCollapseNavBar}>
-                    <Link to="/about">ABOUT</Link>
+                    <Link to="/about">
+                      <BannerOption
+                        colour={
+                          this.state.renderedPage === "About"
+                            ? colorPalette.highlight
+                            : colorPalette.text
+                        }
+                        onClick={() => {
+                          this.handleTogglePage("About");
+                        }}
+                      >
+                        ABOUT
+                      </BannerOption>
+                    </Link>
                   </li>
 
                   <li onClick={this.clickLinktoCollapseNavBar}>
-                    <Link to="/music">MUSIC</Link>
+                    <Link to="/music">
+                      <BannerOption
+                        colour={
+                          this.state.renderedPage === "Music"
+                            ? colorPalette.highlight
+                            : colorPalette.text
+                        }
+                        onClick={() => {
+                          this.handleTogglePage("Music");
+                        }}
+                      >
+                        MUSIC
+                      </BannerOption>
+                    </Link>
                   </li>
 
                   <li onClick={this.clickLinktoCollapseNavBar}>
-                    <Link to="/testimonials">TESTIMONIALS</Link>
+                    <Link to="/testimonials">
+                      <BannerOption
+                        colour={
+                          this.state.renderedPage === "Testimonials"
+                            ? colorPalette.highlight
+                            : colorPalette.text
+                        }
+                        onClick={() => {
+                          this.handleTogglePage("Testimonials");
+                        }}
+                      >
+                        TESTIMONIALS
+                      </BannerOption>
+                    </Link>
                   </li>
 
                   <li onClick={this.clickLinktoCollapseNavBar}>
-                    <Link to="/gallery">GALLERY</Link>
+                    <Link to="/gallery">
+                      <BannerOption
+                        colour={
+                          this.state.renderedPage === "Gallery"
+                            ? colorPalette.highlight
+                            : colorPalette.text
+                        }
+                        onClick={() => {
+                          this.handleTogglePage("Gallery");
+                        }}
+                      >
+                        GALLERY
+                      </BannerOption>
+                    </Link>
                   </li>
 
                   <li onClick={this.clickLinktoCollapseNavBar}>
-                    <Link to="/contact">CONTACT</Link>
+                    <Link to="/contact">
+                      <BannerOption
+                        colour={
+                          this.state.renderedPage === "Contact"
+                            ? colorPalette.highlight
+                            : colorPalette.text
+                        }
+                        onClick={() => {
+                          this.handleTogglePage("Contact");
+                        }}
+                      >
+                        CONTACT
+                      </BannerOption>
+                    </Link>
                   </li>
                 </ul>
               </ConentLinksDiv>

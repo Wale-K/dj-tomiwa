@@ -72,11 +72,17 @@ const TestimonialsContainer = styled.div`
   @media only screen and (min-width: 768px) {
     padding-top: 8rem;
     ${TestimonyArea} {
-      height: 40%;
+      height: 60%;
+      > p {
+        font-size: 1.5rem;
+        margin-top: 4rem;
+        line-height: 3rem;
+      }
     }
 
     ${TestimonialsPictures} {
       width: 80vw;
+
       justify-content: center;
       img {
         margin: 0 2rem;

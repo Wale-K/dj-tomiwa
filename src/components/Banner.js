@@ -16,7 +16,6 @@ const ToggleCollapsedNavBarDisplay = styled.div`
 
 const ContentLinksDiv = styled.nav`
   a {
-    /* color: ${colorPalette.text}; */
     text-decoration: none;
   }
 
@@ -71,8 +70,6 @@ const SocialsIconsContainer = styled.div`
   a:visited {
     color: ${colorPalette.text};
     text-decoration: none;
-    // height: 3rem;
-    // width: 3rem;
     margin: 0.25rem;
   }
   display: flex;
@@ -89,30 +86,6 @@ const BannerContainer = styled.div`
   background-color: ${colorPalette.background};
   height: 8rem;
   box-shadow: 0px 0px 20px rgba(16, 7, 21, 1);
-
-  @media only screen and (max-width: 768px) {
-    ${CollapseNavBar} {
-      display: flex;
-      background-color: ${(props) => props.ccc};
-    }
-
-    ${ToggleCollapsedNavBarDisplay} {
-      display: ${(props) => props.display};
-      background-color: ${(props) => props.ccc};
-    }
-
-    ${ContentLinksDiv} {
-      display: none;
-    }
-    ${DJLogo} {
-      width: 80vw;
-      height: auto;
-    }
-
-    ${SocialsIconsContainer} {
-      display: none;
-    }
-  }
 `;
 
 window.onscroll = function () {
@@ -134,15 +107,12 @@ const scrollFunction = () => {
 };
 
 class Banner extends React.Component {
-  state = { isNavBarCollapsed: true, renderedPage: "Home" };
+  state = { isNavBarCollapsed: true, renderedPage: "" };
 
   handleTogglePage = (arg) => {
-    this.setState(
-      {
-        renderedPage: arg,
-      },
-      console.log(this.state.renderedPage)
-    );
+    this.setState({
+      renderedPage: arg,
+    });
   };
 
   render() {
@@ -209,7 +179,6 @@ class Banner extends React.Component {
 
             <li>
               <Link to="/testimonials">
-                {" "}
                 <BannerOption
                   colour={
                     this.state.renderedPage === "Testimonials"

@@ -41,15 +41,12 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 15rem);
-
-  @media only screen and (min-width: 768px) {
-  }
 `;
 
 const Home = () => {
   return (
     <HomeContainer>
-      <p duration="4s">You are now in the zone with</p>
+      <p>You are now in the zone with</p>
       <p>2020 UK African Wedding Awards DJ of the Year</p>
       <h1>DJ TOMIWA</h1>
     </HomeContainer>
